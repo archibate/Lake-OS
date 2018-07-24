@@ -1,0 +1,6 @@
+CC=$(CROSS)cc
+AS=$(CROSS)as
+LD=$(CROSS)ld
+AR=$(CROSS)ar
+NASM=$(CROSS)nasm
+OBJCOPY=$(CROSS)objcopy

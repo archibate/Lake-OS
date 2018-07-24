@@ -1,0 +1,13 @@
+ifdef IMAGE
+$(IMAGE): $(HEADBIN) $(BINIMG)
+	$E bin $@
+	$Vmkdir -p `dirname $@`
+	$Vcat $^ > $@
+endif
+
+ifdef BINIMG
+$(BINIMG): $(ELFIMG)
+	$E bin $@
+	$Vmkdir -p `dirname $@`
+	$V$(OBJCOPY) -O binary -S $< $@
+endif

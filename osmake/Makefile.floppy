@@ -1,0 +1,21 @@
+SUDO=sudo
+
+$(FDIMAGE): need-files $(FDFAT0) $(BOOTSECT)
+	$E bin $@
+	$Vmkdir -p `dirname $@`
+	$Vcp $(FDFAT0) $@
+	$Vdd if=$(BOOTSECT) of=$@ bs=512 count=1 conv=notrunc
+	-$V$(SUDO) umount $(MNTDIR) || true
+	$V$(SUDO) mount $@ $(MNTDIR)
+	$V$(SUDO) make copy-files
+	$V$(SUDO) umount $(MNTDIR)
+
+PHONY+=need-files
+need-files: $(MNTDIR) $(IMAGE) $(WELCM) $(USHEL) $(DOSBOOT)
+
+PHONY+=copy-files
+copy-files:
+	$E copy $(MNTDIR)/
+	$Vcp $(IMAGE) $(MNTDIR)/LKOSKRNL.SYS
+	$Vcp $(USHEL) $(MNTDIR)/LKOSHELL.COM
+	$Vcp $(WELCM) $(MNTDIR)/LKOSWLCM.TXT

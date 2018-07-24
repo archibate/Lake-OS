@@ -1,0 +1,6 @@
+ifdef ELFIMG
+$(ELFIMG): $(OBJS)
+	$E ld $(ELFIMG)
+	$Vmkdir -p `dirname $@`
+	$V$(CC) $(CFLAGS) $(LDFLAGS) -Wl,-T,$(LDSCRIPT) -o $@ $^
+endif

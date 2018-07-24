@@ -1,0 +1,6 @@
+ifdef ARLIB
+$(ARLIB): $(OBJS)
+	$E ar $@
+	$Vmkdir -p `dirname $@`
+	$V$(AR) cqs $@ $^
+endif

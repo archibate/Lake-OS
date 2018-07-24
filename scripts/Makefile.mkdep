@@ -1,0 +1,8 @@
+$(FINDEP): $(DEPS)
+	$E gen $@
+	$Vmkdir -p `dirname $@`
+ifneq ($(DEPS),)
+	$Vcat $^ > $@
+else
+	$Vecho > $@
+endif

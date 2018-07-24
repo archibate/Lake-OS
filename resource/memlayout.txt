@@ -1,0 +1,42 @@
+000000
+bios data
+000100
+unused
+007c00
+bootsect
+007e00
+unused
+008000
+idt
+008800
+gdt
+008b00
+tss
+009000
+boot-pgd
+00a000
+unused
+00c400
+head
+00d000
+kernel
+02d000
+kernel stack
+09f000
+bios reserved
+0a0000
+vga vram
+0b8000
+text vram
+0e0000
+bios reserved
+0f0000
+bios rom
+100000
+fdbuf
+268000
+dma-ptes
+26b000
+free/dma.alloc
+800000
+free/phys.alloc

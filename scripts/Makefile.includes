@@ -1,0 +1,2 @@
+INCLUDES+=$(INCDIR) include $(LIBS:%=$(LIBDIR)/%/include)
+EXTOBJS+=$(LIBS:%=$(LIBDIR)/%/bin/%.a)

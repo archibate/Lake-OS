@@ -1,0 +1,3 @@
+include $(MAKPREFIX)sources
+OBJS=$(KS:%=$(OBJDIR)/%.o)
+DEPS=$(KS:%=$(OBJDIR)/%.d)

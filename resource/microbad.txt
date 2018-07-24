@@ -1,0 +1,33 @@
+monothonic-kernel:
+
+    hardware
+       |
+   / kernel \
+----------------
+   |        |
+ user1    user2
+
+user
+int80
+do_syscall*
+service
+iret
+user
+
+
+micro-kernel:
+
+       kernel ipc
+------------------------
+   |       |        |
+ user1   user2   service -- hardware
+
+user
+int80
+sysipc.call*
+iret*
+service
+int80*
+sysipc.replywait*
+iret
+user

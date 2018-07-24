@@ -1,0 +1,13 @@
+=========
+more devs!
+=========
+sys_call may have some fucking bug: multi-call1(0) afail!
+=========
+dev/ata fuck a better callnr!
+---------
+shm ipc sendrecvls !! void *buf asdasdly!
+---------
+L4_Shmpfclr: shm*sem might be better
+shmipc!
+=========
+grep '#include "' */*.h!!!!!!!!

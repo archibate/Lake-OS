@@ -1,0 +1,9 @@
+ifndef NOOBJ
+include $(MAKPREFIX)objdeps
+OBJS+=$(EXTOBJS)
+include $(MAKPREFIX)mkdep
+endif
+include $(MAKPREFIX)rules
+ifndef NOOBJ
+include $(MAKPREFIX)findepi
+endif

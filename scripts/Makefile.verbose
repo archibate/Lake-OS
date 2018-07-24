@@ -1,0 +1,8 @@
+ifdef VERBOSE
+E=@true
+V=
+else
+#E=@echo +
+E=@$(SCRDIR)/echozr.sh
+V=@
+endif

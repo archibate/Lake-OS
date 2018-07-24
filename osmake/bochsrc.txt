@@ -1,0 +1,38 @@
+###############################################################
+# bochsrc.bxrc file for Lake-OS.
+###############################################################
+
+# how much memory the emulated machine will have
+megs: 32
+
+# filename of ROM images
+# BIOS已经修改，地址可以不加，可以根据文件大小进行推断，如里加地址要与文件大小相匹配
+romimage: file=$BXSHARE/BIOS-bochs-latest
+vgaromimage: file=$BXSHARE/VGABIOS-lgpl-latest
+
+# what disk images will be used 
+# 配置镜像名
+floppya: 1_44=bin/floppy.img, status=inserted
+
+ata0: enabled=1, ioaddr1=0x1f0, ioaddr2=0x3f0, irq=14
+ata0-master: type=disk, path=../resource/testhd.img, mode=flat
+
+# choose the boot disk.
+boot: a
+
+# where do we send log messages?
+log: bochsout.out
+
+# disable the mouse, since Lake-OS is text only
+mouse: enabled=0
+
+# enable key mapping, using US layout as default.
+# 键盘的映射方式也改变了
+keyboard: keymap=$BXSHARE/keymaps/x11-pc-us.map
+
+# cpu speed some
+clock: sync=slowddown, time0=local
+cpu: count=1, ips=2000000
+
+# choose the display library
+display_library: x

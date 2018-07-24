@@ -1,0 +1,1 @@
+KS=$(shell sh $(SCRDIR)/sources.sh --ks)

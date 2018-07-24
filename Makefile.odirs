@@ -1,0 +1,4 @@
+OSMDIR=$(ROTDIR)/osmake
+KRNDIR=$(ROTDIR)/lxL4
+LIBDIR=$(ROTDIR)/lib
+USRDIR=$(ROTDIR)/usr

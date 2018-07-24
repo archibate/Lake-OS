@@ -1,0 +1,30 @@
+$(OBJDIR)/%.o: $(SRCDIR)/%.asm
+	$E as $<
+	$Vmkdir -p `dirname $@`
+	$V$(NASM) $(NASMFLAGS) -o $@ $<
+
+$(OBJDIR)/%.d: $(SRCDIR)/%.asm
+	$E dep $<
+	$Vmkdir -p `dirname $@`
+	$Vset -e; rm -f $@; \
+	$(NASM) -M $(NASMFLAGS) $< -o $*.o > $@.$$$$; \
+	sed 's,\($*\)\.o[ :]*,$(OBJDIR)/\1.o $@ : ,g' < $@.$$$$ > $@; \
+	rm -f $@.$$$$
+
+$(OBJDIR)/%.o: $(SRCDIR)/%.c
+	$Vmkdir -p `dirname $@`
+	$E cc $<
+	$V$(CC) $(CFLAGS) -c $< -o $@
+
+$(OBJDIR)/%.d: $(SRCDIR)/%.c
+	$E dep $<
+	$Vmkdir -p `dirname $@`
+	$Vset -e; rm -f $@; \
+	$(CC) -M $(CFLAGS) $< > $@.$$$$; echo >> $@.$$$$; \
+	sed 's,\($*\)\.o[ :]*,$(OBJDIR)/\1.o $@ : ,g' < $@.$$$$ > $@; \
+	rm -f $@.$$$$
+
+$(BINDIR)/%.bin: $(SRCDIR)/%.asm
+	$E bin $@
+	$Vmkdir -p `dirname $@`
+	$V$(NASM) $(NASMBINFLAGS) -fbin -o $@ $<

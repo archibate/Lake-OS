@@ -1,0 +1,5 @@
+x86/init/entry init/main x86/init/gdtidt x86/desc x86/init/ssflush x86/init/initss x86/init/pit
+x86/init/pic sys/initidle init/pagging init/rdap/initrdap test/test test/test2
+isr/ihand x86/isr/tick386 isr/tick x86/isr/ientry mm/fault sys/pagger mm/vspace
+mm/vsctl sys/sysmm x86/sys/sys386 sys/sysipc sys/thread sys/cthread
+sys/context sys/uthread mm/ppm sys/idle init/rdap/initrd tty tty0 panic dumpregs

@@ -1,0 +1,17 @@
+#pragma once
+
+#include "page.h"
+
+#define DMA_PGTS 2
+#define DMA_PAGES (DMA_PGTS * 1024)
+#define DMA_END (DMA_PAGES * PGSIZE) // 0x800000 - kernel stop here
+#define KERN_END DMA_END
+
+#define DMA_PPM_BEG_PAGES 0x400
+#define DMA_PPM_BEG (DMA_PPM_BEG_PAGES * PGSIZE)
+#define DMA_PPM_PAGES (DMA_PAGES - DMA_PPM_BEG_PAGES)
+#define DMA_PPM_END (DMA_PPM_BEG + DMA_PPM_PAGES * PGSIZE)
+
+#define PHYS_PPM_BEG DMA_PPM_END
+#define PHYS_PPM_PAGES 0x1000
+#define PHYS_PPM_END (PHYS_PPM_BEG + PHYS_PPM_PAGES * PGSIZE)

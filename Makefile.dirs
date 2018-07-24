@@ -1,0 +1,3 @@
+SCRDIR=$(ROTDIR)/scripts
+RESDIR=$(ROTDIR)/resource
+MAKPREFIX=$(SCRDIR)/Makefile.

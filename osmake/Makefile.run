@@ -1,0 +1,18 @@
+DFLRUNTGT=fd
+PHONY+=run
+run: $(DFLRUNTGT)run
+
+PHONY+=bochs
+bochs: $(DFLRUNTGT)bochs
+
+PHONY+=fdrun
+fdrun: $(FDIMAGE)
+	$E run qemu
+	$Vqemu-system-i386 -boot a -fda $< $(QEMUFLAGS)
+
+PHONY+=fdbochs
+fdbochs: $(FDIMAGE)
+	$E run bochs
+	$Vbochs -qf bochsrc.txt
+
+# TODO: impl. dosrun!

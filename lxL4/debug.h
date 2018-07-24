@@ -1,0 +1,24 @@
+#pragma once
+#include"tty.h"
+#include"strparse.h"
+#include"string.h"
+extern
+struct
+tty_ctl
+tty0;static
+void
+printint(unsigned
+i){char
+bub[22],*be=bub+sizeof(bub)-1;bub[sizeof(bub)-1]=0;tty_putstr(&tty0,int_to_str_f(i,be,16));}static
+void
+printintdl(unsigned
+i,int
+l){char
+bub[22],*be=bub+sizeof(bub)-1;memset(bub,'0',sizeof(bub));bub[sizeof(bub)-1]=0;int_to_str_f(i,be,10);tty_putstr(&tty0,be-l);}static
+void
+printstr(const
+char*str){tty_putstr(&tty0,str);}static
+void
+printnstr(const
+char*str,int
+n){tty_putnstr(&tty0,str,n);}

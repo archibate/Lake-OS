@@ -1,0 +1,9 @@
+PHONY+=clean
+clean:
+	$E clean $(OBJDIR)/
+	-$Vrm -rf $(OBJDIR)/
+
+PHONY+=distclean
+distclean: clean
+	$E clean $(BINDIR)/
+	-$Vrm -rf $(BINDIR)/

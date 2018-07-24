@@ -1,0 +1,7 @@
+include $(MAKPREFIX)verbose
+include $(MAKPREFIX)cross
+include $(MAKPREFIX)flags
+ifdef DEBUG
+include $(MAKPREFIX)debug
+endif
+FINDEP=$(OBJDIR)/Makefile.findep

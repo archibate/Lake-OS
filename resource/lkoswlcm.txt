@@ -1,0 +1,5 @@
+
+kernel started version 001
+
+Welcome to lake-OS v0.01   (C)  2018  Dr.Tanh
+

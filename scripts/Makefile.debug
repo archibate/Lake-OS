@@ -1,0 +1,3 @@
+OPTIM=0
+CFLAGS+=-ggdb -gstabs+
+QEMUFLAGS+=-S -s

@@ -1,0 +1,13 @@
+PHONY+=objs
+objs: $(OBJS)
+
+PHONY+=deps
+deps: $(DEPS)
+
+PHONY+=dep
+dep: $(FINDEP)
+
+include $(MAKPREFIX)clean
+
+
+.PHONY: $(PHONY)

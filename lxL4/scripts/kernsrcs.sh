@@ -1,0 +1,1 @@
+echo $(echo $(awk -F: '{print $2}' obj/Makefile.findep | awk -F'\' '{print $1'} | awk -F' ' '{for (i = 1; i <= NR; i++) {print $i; print '\n';}}' | awk -F'\n' '{if (length($1) != 0) print $1}') | awk -F' ' '{for(i=1;i<=NF;i++){fafa=1;for(j=1;j<i;j++){if($i==$j)fafa=0;}if(fafa){print $i}}}')
